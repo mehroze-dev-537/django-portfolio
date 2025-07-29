@@ -1,4 +1,16 @@
 <h3>To Do List</h3>
+<form method="POST" action="{% url 'todo:dashboard' %}">
+    {% csrf_token %}
+    Name: {{form.title}}
+    <input type="submit" name="Create Task" value="Create new Task">
+</form>
 {% for task in tasks %}
-    {{ task }} <br />
+    {% if task.complete %}
+        <strike>{{ task }}</strike> ✅
+    {% else %}
+        {{task}} ❌
+    {% endif %}
+    <a href="{% url 'todo:edit_task' task.id %}" style="text-decoration: none;">✏️</a>
+    <a href="{% url 'todo:delete_task' task.id %}" style="text-decoration: none;">🗑️</a>
+    <br />
 {% endfor %}
