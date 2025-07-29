@@ -1,2 +1,15 @@
+# Bytecode
+__pycache__/
+*.py[cod]
+
+# Virtualenv
+venv/
+env/
+
+# SQLite (optional for dev)
 db.sqlite3
+
+# OS / Editor files
 .DS_Store
+.vscode/
+.idea/
